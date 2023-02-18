@@ -100,9 +100,9 @@ def work_with_file(r : sr.Recognizer, source: sr.Microphone, language: str, file
                     new_name = f'{speak(r, source, language)[0]}{ext}'
                     os.rename(f'{base_route}//{old_name}', f'{base_route}//{new_name}')
 
-def move_file(extension: list):
-    origin = process_file('Dog','Accel World', 'move',ext=extension)
-    destination = process_file('Dog','anime', 'move', ext=extension)
+def move_file(filename: str, original_folder_name: str, destination_folder_name: str, extension: list):
+    origin = process_file(filename, original_folder_name, 'move',ext=extension)
+    destination = process_file(filename, destination_folder_name, 'move', ext=extension)
     for ext in extension:
         if os.path.exists(f'{origin}{ext}'):
             origin = f'{origin}{ext}'
